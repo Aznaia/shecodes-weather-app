@@ -31,7 +31,23 @@ li {
 }
 
 .weather-app {
-    padding: 20px;
-    border: 1px solid #dadde1;
-    border-radius: 5px;
+  padding: 20px;
+  border: 1px solid #dadde1;
+  border-radius: 5px;
+}
+
+.overview {
+  margin-bottom: 20px;
+}
+
+img {
+  display: inline;
+  margin-right: 10px;
+  height: 50px;
+  width: 50px;
+}
+
+.weather-temperature strong {
+  color: blue;
+  font-size: 100px;
 }
