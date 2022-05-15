@@ -25,7 +25,7 @@ li {
     line-height: 19px;
 }
 
-li:first-letter {
+#description {
   text-transform: capitalize;
 }
 
@@ -44,8 +44,11 @@ li:first-letter {
   margin-bottom: 20px;
 }
 
+.weather-temperature {
+  display: flex;
+}
+
 .weather-temperature img {
-  
   margin-right: 5px;
   height: 50px;
   width: 50px;
@@ -58,7 +61,10 @@ li:first-letter {
 }
 
 .weather-temperature units {
-  position: relative;
+  position: fixed;
   font-size: 64px;
-  top: -50px;
+}
+
+.temperature-float-left {
+  display: contents;
 }
