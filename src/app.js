@@ -20,7 +20,9 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
 
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  celsiusTemp = response.data.main.temp;
+
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
@@ -33,12 +35,12 @@ function displayTemperature(response) {
   response.data.weather[0].description);
 
 }
+
 function search(city) {
   let apiKey = "e937ae3f7a274820b678821bd8a9635d";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   
   axios.get(apiUrl).then(displayTemperature);
-
 }
 
 function handleSubmit(event) {
@@ -47,8 +49,21 @@ let cityInputElement = document.querySelector("#city-input");
 search(cityInputElement.value);
 }
 
-search("Seattle");
+function displayFahrenheitTemperature(event) {
+event.preventDefault();
+let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+let temperatureElement = document.querySelector("#temperature");
+temperatureElement.innerHTML = Math.round(fahrenheitTemp);
+}
 
-//Search form variables
+
+let celsiusTemp = null;
+
+//Search form global variables
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+//units global variables
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+search("Seattle");
