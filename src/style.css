@@ -24,6 +24,9 @@ li {
     font-weight: 100;
     line-height: 19px;
 }
+a {
+  text-decoration: none;
+}
 
 #description {
   text-transform: capitalize;
@@ -63,6 +66,15 @@ li {
 .weather-temperature units {
   position: fixed;
   font-size: 64px;
+}
+
+.weather-temperature .active {
+color: black;
+cursor: default;
+text-decoration: none;
+}
+.weather-temperature .active:hover {
+  text-decoration: none;
 }
 
 .temperature-float-left {
