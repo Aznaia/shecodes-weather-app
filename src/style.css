@@ -98,3 +98,6 @@ text-align: center;
 .weather-forecast-temp-min {
   opacity: .6;
 }
+.weather-forecast-date img{
+  font-size: 14px;
+}

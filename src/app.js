@@ -11,6 +11,14 @@ let day = days[date.getDay()];
 return `${day} ${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+  return days[day];
+}
+
 function getForecast(coordinates) {
   let apiKey = "e937ae3f7a274820b678821bd8a9635d";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
@@ -18,25 +26,27 @@ function getForecast(coordinates) {
 }
 
 function displayForecast(resposne) {
-  console.log(resposne.data.daily);
+  let forecast = resposne.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Sun", "Mon", "Tue"];
-days.forEach(function (day) {
+  
+forecast.forEach(function (forecastDay, index) {
+  if (index < 6) {
   forecastHTML = forecastHTML +
   `
   <div class="col-2">
-    <div class="weather-forecast-date">${day}</div>
+    <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
     <img 
-    src="	https://ssl.gstatic.com/onebox/weather/48/rain_s_cloudy.png
-    " alt="">
+    src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png
+    " alt="Weather Icon">
     <div class="weather-forecast-temp">
-      <span class="weather-forecast-temp-max">25°</span>
+      <span class="weather-forecast-temp-max">${Math.round(forecastDay.temp.max)}°</span>
       | 
-      <span class="weather-forecast-temp-min">18°</span>
+      <span class="weather-forecast-temp-min">${Math.round(forecastDay.temp.min)}°</span>
     </div>
   </div>`;
+  }
 });
   
   forecastHTML = forecastHTML + `</div>`;
@@ -109,3 +119,5 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+search("Seattle");
