@@ -3,9 +3,9 @@ body {
 }
   
 h1 {
-  color: #878787;
+  color: rgb(12, 69, 144);
   font-size: 24px;
-  font-weight: 100;
+  font-weight: 200;
   line-height: 28px;
   margin-bottom: 0;
 }
@@ -19,7 +19,7 @@ li {
   list-style: none;
   margin: 0;
   padding: 0;
-  color: #878787;
+  color: rgb(12, 69, 144);
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
@@ -29,22 +29,24 @@ a {
 }
 
 footer {
-padding-top: 10px;
+  padding-top: 10px;
+  text-align: center;
 }
 
 #description {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
   
 .weather-app-wrapper {
     max-width: 600px;
     margin: 30px auto;
+    width: fit-content;
 }
   
 .weather-app {
   background: linear-gradient(#3a7bd5,#00d2ff);
   padding: 20px;
-  border: 1px solid rgb(12, 69, 144);
+  border: 1px solid ;
   border-radius: 5px;
   box-shadow: -2px 2px 9px rgba(0, 0, 0, 0.4);
 }
@@ -55,6 +57,7 @@ padding-top: 10px;
 
 .form-control {
   box-shadow: -2px 2px 9px rgba(0, 0, 0, 0.4);
+  background-color: aliceblue;
 }
 
 .search-button {
@@ -83,9 +86,9 @@ padding-top: 10px;
 }
 
 .weather-temperature .active {
-color: black;
-cursor: default;
-text-decoration: none;
+  color: black;
+  cursor: default;
+  text-decoration: none;
 }
 .weather-temperature .active:hover {
   text-decoration: none;
@@ -115,4 +118,10 @@ text-align: center;
 
 .weather-forecast-date img{
   font-size: 14px;
+}
+
+.card {
+  background-color: #21A2E8;
+  border: .5px solid rgb(12, 69, 144);
+  box-shadow: -2px 2px 9px rgba(0, 0, 0, 0.4);
 }
